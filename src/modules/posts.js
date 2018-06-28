@@ -18,7 +18,8 @@ export const fetchPosts = subreddit => {
 
     dispatch(
       updatePostsData({
-        posts: data.data.children
+        posts: data.data.children,
+        subreddit: subreddit
       })
     )
   }
