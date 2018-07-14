@@ -3,15 +3,19 @@ import React from 'react'
 class RefEx extends React.Component {
   constructor(props) {
     super(props)
-    this.myRef = React.createRef()
+    this.input = React.createRef()
   }
 
   componentDidMount() {
-    this.myRef.current.innerHTML = '123'
+    this.input.current.focus()
   }
 
   render() {
-    return <div ref={this.myRef}>Ref Example</div>
+    return (
+      <div>
+        <input ref={this.input} />
+      </div>
+    )
   }
 }
 
