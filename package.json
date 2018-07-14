@@ -1,12 +1,12 @@
 {
-  "name": "create-react-app-redux",
+  "name": "react-examples",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.0",
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.1.4"
   },
   "dependencies": {
     "cross-fetch": "^2.2.1",
