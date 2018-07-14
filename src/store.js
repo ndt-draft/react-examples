@@ -23,9 +23,9 @@ const composedEnhancers = compose(
   ...enhancers
 )
 
+// @see https://github.com/facebook/create-react-app/issues/2317
 const store = createStore(rootReducer, initialState, composedEnhancers)
 
-// @see https://github.com/facebook/create-react-app/issues/2317
 if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
     module.hot.accept('./modules', () => {
