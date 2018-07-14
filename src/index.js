@@ -1,22 +1,23 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import store, { history } from './store';
-import App from './containers/app';
+import React from 'react'
+import { render } from 'react-dom'
+import store, { history } from './store'
+import 'sanitize.css/sanitize.css'
+import './index.css'
 
-import 'sanitize.css/sanitize.css';
-import './index.css';
+const target = document.getElementById('root')
 
-const target = document.querySelector('#root');
+let renderApp = () => {
+  const App = require('./containers/app').default
+  const routes = require('./routes').default
 
-render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <App />
-      </div>
-    </ConnectedRouter>
-  </Provider>,
-  target
-);
+  render(<App store={store} history={history} routes={routes} />, target)
+}
+
+// @see https://github.com/facebook/create-react-app/issues/2317
+if (module.hot) {
+  module.hot.accept(['./containers/app', './routes'], () => {
+    renderApp()
+  })
+}
+
+renderApp()
