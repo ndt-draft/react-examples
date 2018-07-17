@@ -1,8 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import store, { history } from './store'
-import 'sanitize.css/sanitize.css'
-import './index.css'
+import './styles/css/index.css'
 
 const target = document.getElementById('root')
 
