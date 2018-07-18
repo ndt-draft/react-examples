@@ -27,3 +27,5 @@ Thanks all authors of these articles and repositories:
 * https://hackernoon.com/using-sass-with-create-react-app-without-ejecting-b5f4f827ed9e
 * https://daveceddia.com/hot-reloading-create-react-app/
 * https://github.com/davezuko/react-redux-starter-kit
+* https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html
+* https://tylermcginnis.com/react-router-code-splitting/
