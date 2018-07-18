@@ -13,7 +13,10 @@
     "cross-fetch": "^2.2.1",
     "node-sass": "^4.9.2",
     "react": "^16.4.1",
+    "react-app-rewire-hot-loader": "^1.0.1",
+    "react-app-rewired": "^1.5.2",
     "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.3",
     "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
@@ -26,13 +29,13 @@
   },
   "scripts": {
     "start": "npm-run-all -p sass:watch start-js",
-    "start-js": "react-scripts start",
+    "start-js": "react-app-rewired start",
     "build": "npm-run-all sass:build build-js",
-    "build-js": "react-scripts build",
+    "build-js": "react-app-rewired build",
     "sass:watch": "node-sass -w src/styles/scss -o src/styles/css",
     "sass:build":
       "node-sass src/styles/scss -o src/styles/css --source-map true",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },

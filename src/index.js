@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 import store, { history } from './store'
 import './styles/css/index.css'
 
@@ -10,7 +11,12 @@ let renderApp = () => {
   const App = require('./containers/app').default
   const routes = require('./routes').default
 
-  render(<App store={store} history={history} routes={routes} />, target)
+  render(
+    <AppContainer>
+      <App store={store} history={history} routes={routes} />
+    </AppContainer>,
+    target
+  )
 }
 
 // @see https://github.com/facebook/create-react-app/issues/2317
