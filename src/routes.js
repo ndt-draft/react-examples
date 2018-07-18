@@ -1,8 +1,10 @@
 import DefaultLayout from './layouts/DefaultLayout'
-import Home from './containers/home'
-import About from './containers/about'
-import Posts from './containers/posts'
-import RefEx from './containers/ref'
+import asyncComponent from './components/AsyncComponent'
+
+const AsyncHome = asyncComponent(() => import('./containers/home'))
+const AsyncAbout = asyncComponent(() => import('./containers/about'))
+const AsyncPosts = asyncComponent(() => import('./containers/posts'))
+const AsyncRefEx = asyncComponent(() => import('./containers/ref'))
 
 export default [
   {
@@ -10,22 +12,22 @@ export default [
     routes: [
       {
         path: '/',
-        component: Home,
+        component: AsyncHome,
         exact: true
       },
       {
         path: '/about',
-        component: About,
+        component: AsyncAbout,
         exact: true
       },
       {
         path: '/posts',
-        component: Posts,
+        component: AsyncPosts,
         exact: true
       },
       {
         path: '/ref',
-        component: RefEx,
+        component: AsyncRefEx,
         exact: true
       }
     ]
