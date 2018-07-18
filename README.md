@@ -1,15 +1,10 @@
-<p align="center"><a href="https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f"><img src="https://i.imgur.com/PATsTx2.png" title="View tutorial" alt="React, React Router, Redux and Redux Thunk" width="900"></a></p>
-
-[![Dependency Status](https://dependencyci.com/github/notrab/create-react-app-redux/badge)](https://dependencyci.com/github/notrab/create-react-app-redux)
-
-* Tutorial: [Getting started with create-react-app, Redux, React Router & Redux Thunk](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
-* Example: [View on Heroku](https://cra-redux-router-thunk.herokuapp.com/) 🙌
+# React examples
 
 ## Installation
 
 ```bash
-git clone https://github.com/notrab/create-react-app-redux.git
-cd create-react-app-redux
+git clone https://github.com/ndt-draft/react-examples.git
+cd react-examples
 yarn
 ```
 
@@ -20,3 +15,15 @@ yarn start
 ```
 
 This boilerplate is built using [create-react-app](https://github.com/facebookincubator/create-react-app) so you will want to read the User Guide for more goodies.
+
+## Resouces
+
+Thanks all authors of these articles and repositories:
+
+* https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f
+* https://serverless-stack.com/chapters/code-splitting-in-create-react-app.html
+* https://simonsmith.io/reusing-layouts-in-react-router-4/
+* https://reacttraining.com/react-router/web/example/route-config
+* https://hackernoon.com/using-sass-with-create-react-app-without-ejecting-b5f4f827ed9e
+* https://daveceddia.com/hot-reloading-create-react-app/
+* https://github.com/davezuko/react-redux-starter-kit
