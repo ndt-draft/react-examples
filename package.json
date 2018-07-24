@@ -36,7 +36,6 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },
-  "homepage": "https://github.com/ndt-draft/react-examples",
   "lint-staged": {
     "*.{js,json,css,md}": ["prettier --write", "git add"]
   }
