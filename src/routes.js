@@ -13,6 +13,7 @@ const AsyncFirebaseChat = asyncComponent(() =>
 const AsyncFirebaseLogin = asyncComponent(() =>
   import('./containers/firebase/login')
 )
+const AsyncOptimizely = asyncComponent(() => import('./containers/optimizely'))
 
 export default [
   {
@@ -37,6 +38,10 @@ export default [
         path: '/ref',
         component: AsyncRefEx,
         exact: true
+      },
+      {
+        path: '/optimizely',
+        component: AsyncOptimizely,
       }
     ]
   },

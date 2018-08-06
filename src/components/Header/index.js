@@ -8,6 +8,7 @@ const Header = () => (
     <Link to="/posts">Posts</Link>
     <Link to="/ref">RefEx</Link>
     <Link to="/firebase">Firebase</Link>
+    <Link to="/optimizely">Optimizely</Link>
   </header>
 )
 
