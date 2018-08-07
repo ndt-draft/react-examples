@@ -6,41 +6,41 @@ class Optimizely extends React.Component {
     super()
 
     this.state = {
-      variation: 'Optimizely'
+      variation: 'Optimizely',
+      userId: 'demo-user-5-'
     }
   }
 
   componentDidMount() {
-    var optimizelyClientInstance;
-    var url = 'https://cdn.optimizely.com/json/11116229115.json';
+    let url = 'https://cdn.optimizely.com/json/11116229115.json';
 
     window.fetch(url, { mode: 'cors' })
       .then((response) => response.json())
       .then((datafile) => {
-        optimizelyClientInstance = optimizely.createInstance({ datafile: datafile })
-
-        var variation = optimizelyClientInstance.activate('my_experiment', 'Agatha-71875c482b1b');
-        optimizelyClientInstance.track('my_conversion', 'Agatha-71875c482b1b');
-
-        // var variation = optimizelyClientInstance.activate('my_experiment', 'Mahesha-aee098f6454a');
-        // optimizelyClientInstance.track('my_conversion', 'Mahesha-aee098f6454a');
-
-        if (variation === 'control') {
-          this.setState({
-            variation: 'control'
-          })
-        } else if (variation === 'treatment') {
-          this.setState({
-            variation: 'treatment'
-          })
-        }
-
+        this.optimizelyClientInstance = optimizely.createInstance({ datafile: datafile })
       });
+  }
+
+  trackMyConversion = () => {
+    this.optimizelyClientInstance.track('my_conversion', this.state.userId);
+  }
+
+  runTest = () => {
+    for (let i = 0; i < 100; i++) {
+      this.variation = this.optimizelyClientInstance.activate('my_experiment', this.state.userId + i);
+
+      // run track randomly by determining true or false randomly
+      if (Math.floor(Math.random() * 2)) {
+        this.optimizelyClientInstance.track('my_conversion', this.state.userId + i);
+      }
+    }
   }
 
   render() {
     return (
-      <div>{this.state.variation}</div>
+      <div>
+        <p>Your current variation: {this.state.variation}</p>
+      </div>
     )
   }
 }
