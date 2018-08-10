@@ -1,12 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import api from '../../modules/api'
 
 class FirebaseLogin extends React.Component {
-  constructor() {
-    super()
-  }
-
   componentDidMount() {}
 
   render() {
