@@ -23,10 +23,12 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.4.2",
     "redux-thunk": "^2.2.0",
-    "sanitize.css": "^5.0.0"
+    "sanitize.css": "^5.0.0",
+    "serve": "^10.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "now-start": "serve --single ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
