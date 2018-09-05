@@ -11,7 +11,7 @@ import {
 
 const Home = props => (
   <div>
-    <h1>Home</h1>
+    <h1>Counter Example</h1>
     <p>Count: {props.count}</p>
 
     <p>
