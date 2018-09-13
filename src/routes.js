@@ -14,6 +14,7 @@ const AsyncFirebaseLogin = asyncComponent(() =>
   import('./containers/firebase/login')
 )
 const AsyncOptimizely = asyncComponent(() => import('./containers/optimizely'))
+const AsyncFormik = asyncComponent(() => import('./containers/formik'))
 
 export default [
   {
@@ -41,7 +42,11 @@ export default [
       },
       {
         path: '/optimizely',
-        component: AsyncOptimizely,
+        component: AsyncOptimizely
+      },
+      {
+        path: '/formik',
+        component: AsyncFormik
       }
     ]
   },
