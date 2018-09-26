@@ -17,6 +17,10 @@ class FormikExample extends React.Component {
       delete values.not_handled
     }
 
+    if (values.type === 'agent') {
+      delete values.intent
+    }
+
     window.fetch('https://chatbase-area120.appspot.com/api/message', {
       method: 'POST',
       mode: 'no-cors',
