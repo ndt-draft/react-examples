@@ -36,12 +36,14 @@ class FormikExample extends React.Component {
   render() {
     return (
       <div>
+        <h1>Chatbase</h1>
         <Formik
           initialValues={{
             api_key: '',
             type: 'user',
-            message: '',
+            message_text: '',
             user_id: '',
+            user_name: '',
             intent: '',
             not_handled: false,
             platform: '',

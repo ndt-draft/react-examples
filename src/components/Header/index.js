@@ -10,7 +10,9 @@ const Header = () => (
     <Link to="/ref">RefEx</Link>
     <Link to="/firebase">Firebase</Link>
     <Link to="/optimizely">Optimizely</Link>
-    <Link to="/formik">Formik</Link>
+    <Link to="/formik">Chatbase</Link>
+    <Link to="/dashbot">Dashbot</Link>
+    <Link to="/botanalytics">Botanalytics</Link>
   </header>
 )
 

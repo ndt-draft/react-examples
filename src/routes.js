@@ -15,6 +15,10 @@ const AsyncFirebaseLogin = asyncComponent(() =>
 )
 const AsyncOptimizely = asyncComponent(() => import('./containers/optimizely'))
 const AsyncFormik = asyncComponent(() => import('./containers/formik'))
+const AsyncDashbot = asyncComponent(() => import('./containers/dashbot'))
+const AsyncBotanalytics = asyncComponent(() =>
+  import('./containers/botanalytics')
+)
 
 export default [
   {
@@ -47,6 +51,14 @@ export default [
       {
         path: '/formik',
         component: AsyncFormik
+      },
+      {
+        path: '/dashbot',
+        component: AsyncDashbot
+      },
+      {
+        path: '/botanalytics',
+        component: AsyncBotanalytics
       }
     ]
   },
