@@ -1,6 +1,5 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
-import axios from 'axios'
 
 class FormikExample extends React.Component {
   constructor() {
@@ -18,7 +17,16 @@ class FormikExample extends React.Component {
       delete values.not_handled
     }
 
-    axios.post('https://chatbase-area120.appspot.com/api/message', values)
+    window.fetch('https://chatbase-area120.appspot.com/api/message', {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      // headers: {
+      //     "Content-Type": "application/json",
+      // },
+      referrer: 'no-referrer',
+      body: JSON.stringify(values)
+    })
   }
 
   render() {
