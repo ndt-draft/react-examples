@@ -1,62 +1,75 @@
 import React from 'react'
-import { Formik } from 'formik'
+import { Formik, Form, Field } from 'formik'
+import axios from 'axios'
 
-const Basic = () => (
-  <div>
-    <h1>Anywher in your app!</h1>
-    <Formik
-      initialValues={{ email: '', password: '' }}
-      validate={values => {
-        let errors = {}
-        if (!values.email) {
-          errors.email = 'Required'
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address'
-        }
-        return errors
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2))
-          setSubmitting(false)
-        }, 400)
-      }}>
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting
-        /* and other goodies */
-      }) => (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.email}
-          />
-          {errors.email && touched.email && errors.email}
-          <input
-            type="password"
-            name="password"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.password}
-          />
-          {errors.password && touched.password && errors.password}
-          <button type="submit" disabled={isSubmitting}>
-            Submit
-          </button>
-        </form>
-      )}
-    </Formik>
-  </div>
-)
+class FormikExample extends React.Component {
+  constructor() {
+    super()
 
-export default Basic
+    this.state = {
+      response: ''
+    }
+  }
+
+  submit(values) {
+    console.log(values)
+
+    if (!values.not_handled) {
+      delete values.not_handled
+    }
+
+    axios.post('https://chatbase-area120.appspot.com/api/message', values)
+  }
+
+  render() {
+    return (
+      <div>
+        <Formik
+          initialValues={{
+            api_key: '',
+            type: 'user',
+            message: '',
+            user_id: '',
+            intent: '',
+            not_handled: false,
+            platform: '',
+            version: ''
+          }}
+          onSubmit={(values, { setSubmitting }) => {
+            this.submit(values)
+            setSubmitting(false)
+          }}>
+          {({ isSubmitting }) => (
+            <Form>
+              <Field type="text" name="api_key" placeholder="api_key" />
+              <br />
+              <Field component="select" name="type">
+                <option value="user">User</option>
+                <option value="agent">Bot</option>
+              </Field>
+              <br />
+              <Field type="text" name="message" placeholder="message" />
+              <br />
+              <Field type="text" name="user_id" placeholder="user id" />
+              <br />
+              <Field type="text" name="intent" placeholder="intent" />
+              <br />
+              <label>
+                <Field type="checkbox" name="not_handled" /> Not handled
+              </label>
+              <br />
+              <Field type="text" name="platform" placeholder="platform" />
+              <br />
+              <Field type="text" name="version" placeholder="version" />
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    )
+  }
+}
+
+export default FormikExample
