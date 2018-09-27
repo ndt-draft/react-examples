@@ -31,9 +31,9 @@ class Dashbot extends React.Component {
 
     window.fetch(`https://api.botanalytics.co/v1/messages/generic/`, {
       method: 'POST',
-      mode: 'no-cors',
+      credentials: 'include',
       cache: 'no-cache',
-      referrer: 'no-referrer',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Token ${values.api_key}`

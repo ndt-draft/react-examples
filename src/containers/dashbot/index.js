@@ -23,6 +23,12 @@ class Dashbot extends React.Component {
       }
     }
 
+    if (values.intent) {
+      data['intent'] = {
+        name: values.intent
+      }
+    }
+
     window.fetch(
       `https://tracker.dashbot.io/track?platform=generic&v=10.1.1-rest&type=${type}&apiKey=${
         values.apiKey
@@ -46,7 +52,8 @@ class Dashbot extends React.Component {
             api_key: '',
             type: 'user',
             text: '',
-            userId: ''
+            userId: '',
+            intent: ''
           }}
           onSubmit={(values, { setSubmitting }) => {
             this.submit(values)
@@ -64,6 +71,11 @@ class Dashbot extends React.Component {
               <Field type="text" name="text" placeholder="message" />
               <br />
               <Field type="text" name="userId" placeholder="user id" />
+              <br />
+              <Field type="text" name="intent" placeholder="intent" />
+              <span>
+                Enter <strong>NotHandled</strong> if your bot doesn't understand
+              </span>
               <br />
               <button type="submit" disabled={isSubmitting}>
                 Submit
